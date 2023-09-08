@@ -22,12 +22,16 @@ public class RegistroPacientesGUI extends JFrame {
         // Pestaña 1 - Bienvenida e imagen
         JPanel panel1 = new JPanel();
         JLabel bienvenidaLabel = new JLabel("Bienvenido al Registro de Pacientes");
-        ImageIcon logoIcon = new ImageIcon("logo_clinica.png"); // Reemplaza "logo_clinica.png" con la ubicación de tu imagen
-        JLabel logoLabel = new JLabel(logoIcon);
+
+        JLabel logoLabel = new JLabel();
+        logoLabel.setText("");
+        logoLabel.setIcon(new ImageIcon(getClass().getResource("/img/pngwing.png")));
+
 
         panel1.setLayout(new BorderLayout());
         panel1.add(bienvenidaLabel, BorderLayout.NORTH);
-        panel1.add(logoLabel, BorderLayout.CENTER);
+        panel1.add(logoLabel);
+
         tabbedPane.addTab("Inicio", panel1);
 
         // Pestaña 2 - Formulario de registro
@@ -93,8 +97,10 @@ public class RegistroPacientesGUI extends JFrame {
             }
         });
 
+        panel2.add(new JLabel(""));
         panel2.add(guardarButton);
         panel2.add(nuevoButton);
+        panel2.add(new JLabel(""));
         tabbedPane.addTab("Registro de Pacientes", panel2);
 
         // Pestaña 3 - Información de ayuda
@@ -102,7 +108,7 @@ public class RegistroPacientesGUI extends JFrame {
         ayudaTextArea = new JTextArea(10, 40);
         ayudaTextArea.setEditable(false);
         ayudaTextArea.setText("Instrucciones:\n\n1. Complete todos los campos.\n2. Haga clic en Guardar para registrar al paciente.\n3. Haga clic en Nuevo para limpiar los campos.");
-
+        ayudaTextArea.setEditable(false);
         panel3.add(ayudaTextArea);
         tabbedPane.addTab("Ayuda", panel3);
 
